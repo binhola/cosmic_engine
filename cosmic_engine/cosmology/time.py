@@ -1,4 +1,5 @@
-from constants.units import CosmicUnits
+# cosmology/time.py
+from cosmic_engine.constants.units import CosmicUnits
 from scipy.integrate import quad
 import numpy as np
 

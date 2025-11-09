@@ -1,5 +1,10 @@
-from constants.units import CosmicUnits
-from constants.physical import PhysicalConstants
+# cosmology/universe.py
+from cosmic_engine.constants.units import CosmicUnits
+from cosmic_engine.constants.physical import PhysicalConstants
+
+# Import calculators at the top (cleaner than inside __init__)
+from cosmic_engine.cosmology.distances import DistanceCalculator
+from cosmic_engine.cosmology.time import CosmicTime
 
 class Universe:
     """Main Universe class holding cosmological parameters"""
@@ -12,10 +17,6 @@ class Universe:
         self.Omega_rad = Omega_rad
         self.Omega_k = 1 - (Omega_m + Omega_Lambda + Omega_rad)
         self.H0_si = CosmicUnits.km_to_mpc(H0)
-
-        # Import calculators
-        from cosmology.distances import DistanceCalculator
-        from cosmology.time import CosmicTime
         
         self.distances = DistanceCalculator(self)
         self.time = CosmicTime(self)

@@ -1,5 +1,6 @@
-from constants.units import CosmicUnits
-from constants.physical import PhysicalConstants
+# cosmology/distances.py
+from cosmic_engine.constants.units import CosmicUnits
+from cosmic_engine.constants.physical import PhysicalConstants
 import numpy as np
 from scipy.integrate import quad
 
@@ -33,6 +34,6 @@ class DistanceCalculator:
         if unit.lower() == 'mpc':
             return result
         elif unit.lower() == 'km':
-            return CC.mpc_to_km(result)
+            return CosmicUnits.mpc_to_km(result)
         else:
             raise ValueError("Unit must be 'mpc' or 'km'")
